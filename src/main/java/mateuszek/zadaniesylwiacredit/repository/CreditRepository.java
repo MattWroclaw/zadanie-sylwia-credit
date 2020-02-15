@@ -6,6 +6,4 @@ import org.springframework.data.jpa.repository.Query;
 
 public interface CreditRepository extends JpaRepository<Credit, Integer> {
 
-    @Query("SELECT max (id) FROM Credit ")
-    int getId();
 }

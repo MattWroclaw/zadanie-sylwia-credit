@@ -8,5 +8,6 @@ public class Customer {
     private String firstName;
     private String surname;
     private String pesel;
+    private int credtiId;
 
 }
