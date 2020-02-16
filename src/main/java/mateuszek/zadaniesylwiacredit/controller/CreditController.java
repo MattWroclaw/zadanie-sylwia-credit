@@ -56,6 +56,7 @@ public class CreditController {
             Product product = restTemplate.exchange("http://localhost:8302/product/id=" + creditId,
                     HttpMethod.GET, null, new ParameterizedTypeReference<Product>() {
                     }).getBody();
+            singleCredit.setProduct(product);
 //      *************************************************************************************************
 
 //            Customer customer = restTemplate.exchange("http://customer:8300/customer/id=" + creditId,
@@ -67,6 +68,8 @@ public class CreditController {
 //            Product product = restTemplate.exchange("http://product:8302/product/id=" + creditId,
 //                    HttpMethod.GET, null, new ParameterizedTypeReference<Product>() {
 //                    }).getBody();
+//            singleCredit.setProduct(product);
+
 //            ********************************************************************
 
             returnedList.add(singleCredit); // add to the collective list that will be returned
