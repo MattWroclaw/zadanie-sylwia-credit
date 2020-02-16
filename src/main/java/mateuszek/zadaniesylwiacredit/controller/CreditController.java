@@ -44,6 +44,9 @@ public class CreditController {
         for (int i = 0; i < creditList.size(); i++) { // we iterate over the list of credits..
             Credit singleCredit = creditList.get(i); // ..for each iteration take a single credit..
             int creditId = singleCredit.getId(); // ... from single credit we get to know the id of it
+
+
+//            **********************************************************************************************
             Customer customer = restTemplate.exchange("http://localhost:8300/customer/id=" + creditId,
                     HttpMethod.GET, null, new ParameterizedTypeReference<Customer>() {
                     }).getBody(); // we pass query to other service to find that (here) customer by credit id
@@ -53,7 +56,18 @@ public class CreditController {
             Product product = restTemplate.exchange("http://localhost:8302/product/id=" + creditId,
                     HttpMethod.GET, null, new ParameterizedTypeReference<Product>() {
                     }).getBody();
-            singleCredit.setProduct(product);
+//      *************************************************************************************************
+
+//            Customer customer = restTemplate.exchange("http://customer:8300/customer/id=" + creditId,
+//                    HttpMethod.GET, null, new ParameterizedTypeReference<Customer>() {
+//                    }).getBody(); // we pass query to other service to find that (here) customer by credit id
+//            singleCredit.setCustomer(customer); // set received object (here customer) to appropriate credit..
+//
+//            // We do the same to product
+//            Product product = restTemplate.exchange("http://product:8302/product/id=" + creditId,
+//                    HttpMethod.GET, null, new ParameterizedTypeReference<Product>() {
+//                    }).getBody();
+//            ********************************************************************
 
             returnedList.add(singleCredit); // add to the collective list that will be returned
         }
